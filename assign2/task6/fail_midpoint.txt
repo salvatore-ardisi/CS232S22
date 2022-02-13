@@ -1,0 +1,1 @@
+I used [-2147483647 -2] and [2147483647] to fail midpoint_A test. It failed because [-2147483647 -2] is [0x80000000] and [2147483647] is [0x7FFFFFFF] so the midpoint of [-2147483647 -2] and [2147483647] is expected to be [0x7FFFFFFF]. However, midpoint_A failed when it computes [y-x] because its result is [0x80000001 - 0x7FFFFFFF = 0x7FFFFFFF].
