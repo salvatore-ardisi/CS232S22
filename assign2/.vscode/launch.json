@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [
+        ""
+      ],
+      "stopAtEntry": true,
+      "cwd": "/Volumes/T7/ba_cs/spring_2022/cs232/week3/assignment2/CS232S22/assign2",
+      "environment": [],
+      "program": "/Volumes/T7/ba_cs/spring_2022/cs232/week3/assignment2/CS232S22/assign2/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "externalConsole": true
+    }
+  ]
+}
