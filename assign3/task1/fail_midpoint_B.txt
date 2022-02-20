@@ -1,0 +1,4 @@
+I used [-2147483650] and [2147483649] to fail midpoint_B test. It failed because [-2147483650] is [0x80000002] and [2147483649] is [0x80000001] so the midpoint of [-2147483650] and [2147483649] is expected to be [0xFFFFFFFF]. However, midpoint_B failed when it computes ((unsigned int)x + (unsigned int)y) >> 1 because its result is ((unsigned int)[0x80000002 + (unsigned int)0x80000001) >> 1 = [0x7FFFFFFF]. 
+
+
+You can't assign a negative value to unsigned integers they do not use the Two's complement system. So, any input will be stored as positive and its result will always be minimum 0 [0x00000000] to the max 4294967295 [0xFFFFFFFF] for unsigned integers (midpoint_B) and minimum 0 [0x00000000] to the max 2147483647 [0x7FFFFFFF] for integers (midpoint_A).

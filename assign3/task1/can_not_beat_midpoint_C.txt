@@ -1,0 +1,22 @@
+midpoint_A fails with large negative inputs and its restriction on upper and lower bounds of integers, lower bound for int is -2147483647 - 1, upper bound is 2147483647. 
+Also, if you use a negative number as the x input it will become positive, since it uses (y - x). an integers max value is 2147483647 so if you were to go over one 2147483648 the result would overflow to a negative value. midpoint_C addresses this by using bitwise &, and bitwise ^.
+
+
+For example, 0x80000000 and 0x7FFFFFFF
+(x & y) = (0x80000000 & 0x7FFFFFFF) = 0
+
+((x ^ y) >> 1) = (0x80000000 ^ 0x7FFFFFFF) = 0xFFFFFFFF >> 1 = 0xFFFFFFFF
+
+Or with smaller decimal values.
+
+For example, -50 and 70
+(x & y) = (-50 & 70) = 70
+
+((x ^ y) >> 1) = (-50 ^ 70) = -120 >> 1 = -60
+
+70 + - 60 = 10
+
+
+
+
+midpoint_B fails since it used unsigned integers which don't utilize two's complement to determine negative and positive values. With unsigned integers there is no negatives. So, when a negative number is introduced it overflows to the upper bound and continues decreasing from the upper bound (2147483647). midpoint_C addresses this with the bitwise & which checks the msb using two's complement.
