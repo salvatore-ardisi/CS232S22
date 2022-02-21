@@ -6,43 +6,67 @@
 char *convert_2(int dec)
 {
 	// TODO: your implementation
-	char *bin = malloc(33 * sizeof(char));
 
-	// if dec is negative
-	if (dec < 0)
+	char *bin = (char *)malloc(sizeof(char) * 50);
+
+	int makePositive = abs(dec);
+
+	bin[0] = '0';
+	bin[1] = '1';
+
+	for (int i = 2; i < 34; i++)
 	{
-		dec *= -1;
-		for (int i = 0; i < 32; i++)
+		if (i % 4 == 0)
 		{
-			if (dec % 2 == 1)
-			{
-				bin[33 - i] = '1';
-			}
-			else
-			{
-				bin[33 - i] = '0';
-			}
-			dec /= 2;
+			bin[i] = ' ';
 		}
-	}
-	// otherwise
-	else
-	{
-		for (int i = 0; i < 32; i++)
+		if (makePositive % 2 == 0)
 		{
-			if (dec % 2 == 1)
-			{
-				bin[33 - i] = '1';
-			}
-			else
-			{
-				bin[33 - i] = '0';
-			}
-			dec /= 2;
+			bin[i] = 1;
+		}
+		else
+		{
+			bin[i] = 0;
 		}
 	}
 
-	bin[33] = '\0';
+	// char *bin = malloc(34 * sizeof(char));
+	//
+	// // if dec is negative
+	// if (dec < 0)
+	// {
+	// 	dec *= -1;
+	// 	for (int i = 0; i < 32; i++)
+	// 	{
+	// 		if (dec % 2 == 1)
+	// 		{
+	// 			bin[34 - i] = '1';
+	// 		}
+	// 		else
+	// 		{
+	// 			bin[34 - i] = '0';
+	// 		}
+	// 		dec /= 2;
+	// 	}
+	// }
+	// // otherwise
+	// else
+	// {
+	// 	for (int i = 0; i < 32; i++)
+	// 	{
+	// 		if (dec % 2 == 1)
+	// 		{
+	// 			bin[34 - i] = '1';
+	// 		}
+	// 		else
+	// 		{
+	// 			bin[34 - i] = '0';
+	// 		}
+	// 		dec /= 2;
+	// 	}
+	// }
+
+	bin[34] = '\0';
 
 	return bin;
 }
