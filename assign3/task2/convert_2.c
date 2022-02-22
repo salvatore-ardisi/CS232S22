@@ -9,20 +9,41 @@ char *convert_2(int dec)
 
 	for (int i = 2; i < 43; i++)
 	{
-		if (dec % 2 == 0)
+		if (bin[3] == 0)
 		{
-			bin[43 - i] = '0';
-			dec /= 2;
+			if (dec % 2 == 0)
+			{
+				bin[43 - i] = '1';
+				dec /= 2;
+			}
+			else
+			{
+				bin[43 - i] = '0';
+				dec /= 2;
+			}
+			if (i % 5 == 0)
+			{
+				bin[42 - i] = ' ';
+				i++;
+			}
 		}
 		else
 		{
-			bin[43 - i] = '1';
-			dec /= 2;
-		}
-		if (i % 5 == 0)
-		{
-			bin[42 - i] = ' ';
-			i++;
+			if (dec % 2 == 0)
+			{
+				bin[43 - i] = '0';
+				dec /= 2;
+			}
+			else
+			{
+				bin[43 - i] = '1';
+				dec /= 2;
+			}
+			if (i % 5 == 0)
+			{
+				bin[42 - i] = ' ';
+				i++;
+			}
 		}
 	}
 
