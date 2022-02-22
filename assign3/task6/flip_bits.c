@@ -10,8 +10,14 @@ void flip_bits(unsigned *x,
 {
     unsigned *a = (unsigned *)malloc(sizeof(unsigned) * (end - start + 1));
 
-    for (unsigned i = 0; i < (end - start) + 1; i++)
+    for (unsigned i = 0; i <= end; i++)
     {
+        // flip bit
         a[i] = ~*x;
+    }
+    printf("array:\n");
+    for (int i = 0; i <= end; i++)
+    {
+        printf("arr[%u] = 0x%x\n\n", i, a[i]);
     }
 }
