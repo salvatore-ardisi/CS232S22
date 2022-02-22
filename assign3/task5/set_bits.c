@@ -8,22 +8,25 @@ void set_bits(unsigned *x,
               unsigned end,
               unsigned *v)
 {
-    // YOUR CODE HERE
-    // No return value
-    // v points to an array of at least (end-start+1) unsigned integers.
-    // if v[i] == 0, then set (i+start)-th bit of x zero, otherwise, set (i+start)-th bit of x one
+    // array of at least (end-start+1) unsigned integers.
+    unsigned *a = (unsigned *)malloc(sizeof(unsigned) * (end - start + 1));
+
+    // v points to an array of at least (end-start+1) unsigned integers
+    v = a;
+
     for (int i = start; i <= end; i++)
     {
+        // if v[i] == 0
         if (v[i] == 0)
         {
             // set ( i + start)-th bit of x zero
-            v[i] &= *x;
+            *x ^= i + start;
         }
         // otherwise
         else
         {
             // set(i + start) - th bit of x one
-            v[i] |= *x;
+            *x ^= ~(i + start);
         }
     }
 }
