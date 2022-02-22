@@ -5,32 +5,30 @@
 // 2) No globals allowed.
 char *convert_2(int dec)
 {
-	char *bin = (char *)malloc(sizeof(char) * 37);
+	char *bin = (char *)malloc(42);
 
-	int makePositive = abs(dec);
-
-	for (int i = 0; i <= 37; i++)
+	for (int i = 2; i <= 41; i++)
 	{
-		if (makePositive % 2 == 0)
+		if (dec % 2 == 0)
 		{
-			bin[35 - i] = '0';
-			makePositive /= 2;
+			bin[42 - i] = '0';
+			dec /= 2;
 		}
-		else if (makePositive % 2 == 1)
+		else
 		{
-			bin[35 - i] = '1';
-			makePositive /= 2;
+			bin[42 - i] = '1';
+			dec /= 2;
 		}
 		if (i % 5 == 0)
 		{
-			bin[36 - i] = ' ';
+			bin[42 - i] = ' ';
 		}
 	}
 
 	bin[0] = '0';
 	bin[1] = 'b';
 
-	bin[37] = '\0';
+	bin[41] = '\0';
 
 	return bin;
 }
