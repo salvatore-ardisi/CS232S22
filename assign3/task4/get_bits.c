@@ -7,7 +7,7 @@
 unsigned *get_bits(unsigned x, unsigned start, unsigned end)
 {
     // get_bits dynamically allocates an array a
-    unsigned int *a = malloc((end - start) * sizeof(unsigned int));
+    unsigned *a = (unsigned *)malloc(sizeof(unsigned) * (end - start + 1));
 
     for (unsigned int i = start; i <= end; i++)
     {
