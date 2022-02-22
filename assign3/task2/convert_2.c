@@ -5,23 +5,23 @@
 // 2) No globals allowed.
 char *convert_2(int dec)
 {
-	char *bin = (char *)malloc(sizeof(char) * 45);
+	char *bin = (char *)malloc(sizeof(char) * 44);
 
-	for (int i = 2; i < 44; i++)
+	for (int i = 2; i < 43; i++)
 	{
 		if (dec % 2 == 0)
 		{
-			bin[44 - i] = '0';
+			bin[43 - i] = '0';
 			dec /= 2;
 		}
 		else
 		{
-			bin[44 - i] = '1';
+			bin[43 - i] = '1';
 			dec /= 2;
 		}
 		if (i % 5 == 0)
 		{
-			bin[43 - i] = ' ';
+			bin[42 - i] = ' ';
 			i++;
 		}
 	}
@@ -29,7 +29,7 @@ char *convert_2(int dec)
 	bin[0] = '0';
 	bin[1] = 'b';
 
-	bin[44] = '\0';
+	bin[43] = '\0';
 
 	return bin;
 }
