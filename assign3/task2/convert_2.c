@@ -5,29 +5,32 @@
 // 2) No globals allowed.
 char *convert_2(int dec)
 {
-	char *bin = (char *)malloc(sizeof(char) * 35);
+	char *bin = (char *)malloc(sizeof(char) * 37);
 
 	int makePositive = abs(dec);
 
-	for (int i = 0; i <= 35; i++)
+	for (int i = 0; i <= 37; i++)
 	{
 		if (makePositive % 2 == 0)
 		{
-			bin[33 - i] = '0';
+			bin[35 - i] = '0';
 			makePositive /= 2;
 		}
 		else if (makePositive % 2 == 1)
 		{
-			bin[33 - i] = '1';
+			bin[35 - i] = '1';
 			makePositive /= 2;
 		}
 		if (i % 5 == 0)
 		{
-			bin[34 - i] = ' ';
+			bin[36 - i] = ' ';
 		}
 	}
 
-	bin[35] = '\0';
+	bin[0] = '0';
+	bin[1] = 'b';
+
+	bin[37] = '\0';
 
 	return bin;
 }
@@ -39,7 +42,7 @@ int main()
 	printf("Enter the Decimal Number\n");
 	scanf("%d", &n);
 	bin = convert_2(n);
-	printf("The Binary Notation of %d is\t 0b%s\n", n, bin);
+	printf("The Binary Notation of %d is\t %s\n", n, bin);
 	// TODO: do we need to release the memory of bin?
 	free(bin);
 }
