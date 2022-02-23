@@ -9,19 +9,19 @@ unsigned *get_bits(unsigned x, unsigned start, unsigned end)
 	// get_bits dynamically allocates an array a
 	unsigned *a = (unsigned *)malloc(sizeof(unsigned) * (end - start + 1));
 
-	int temp = 1;
+	// int temp = 1;
 
-	for (unsigned int i = 0; i <= end; i++)
-	{
-		if (i >= start && x < (x ^ temp))
-		{
-			a[i] = 0;
-		}
-		else
-		{
-			a[i] = 1;
-		}
-		temp <<= 1;
-	}
-	return a;
+	// for (unsigned int i = 0; i <= end; i++)
+	// {
+	// 	if (i >= start && x < (x ^ temp))
+	// 	{
+	// 		a[i] = 0;
+	// 	}
+	// 	else
+	// 	{
+	// 		a[i] = 1;
+	// 	}
+	// 	temp <<= 1;
+	// }
+	// return a;
 }
