@@ -9,12 +9,14 @@ int main()
   int letter_frequency[26] = {0};
   int len, i;
   char buf[MAX_BUF];
-
   len = strlen(buf);
 
   do
   {
-    fgets(buf, MAX_BUF, stdin);
+    if (fgets(buf, MAX_BUF, stdin) == NULL)
+    {
+      len = 0;
+    }
 
     for (int i = 0; i < len; ++i)
     {
@@ -26,6 +28,7 @@ int main()
       {
         letter_frequency[buf[i] - 'a']++;
       }
+      len = strlen(buf) - 1;
     }
   } while (len > 1);
 
