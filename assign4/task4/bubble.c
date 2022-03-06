@@ -9,7 +9,7 @@
 
 void myswap(char *a, char *b)
 {
-   int temp;
+   char temp;
    temp = *a;
    *a = *b;
    *b = temp;
@@ -39,24 +39,25 @@ int main()
 
    puts("\nHere are the strings in the order you entered:");
 
-   for (int j = 0; j < NUM - 1; j++)
+   for (int j = 0; j < NUM; j++)
    {
       for (int k = 0; k < NUM - j - 1; k++)
       {
-         if (Strings[j] > Strings[k])
+         // can't figure out why the string lenght isn't comparing correctly
+         if (strlen(Strings[k]) > strlen(Strings[k + 1]))
          {
-            myswap(Strings[j], Strings[j + 1]);
-
-            if (strlen(Strings[j]) < strlen(Strings[k]))
-            {
-               myswap(Strings[j], Strings[k]);
-            }
-            else
-            {
-               myswap(Strings[j], Strings[j + 1]);
-            }
+            myswap(Strings[k + 1], Strings[k]);
          }
-         break;
+         if (Strings[k + 1] < Strings[k])
+         {
+            // not sure why the swap isn't working correctly
+            myswap(Strings[k], Strings[k + 1]);
+            break;
+         }
+         else
+         {
+            break;
+         }
       }
    }
 
