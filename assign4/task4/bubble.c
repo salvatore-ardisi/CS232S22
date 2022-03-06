@@ -2,11 +2,12 @@
 
 #include <stdio.h>  /* Need for standard I/O functions */
 #include <string.h> /* Need for strlen() */
+#include <stdlib.h>
 
 #define NUM 30   /* number of strings */
 #define LEN 1200 /* max length of each string */
 
-void swap(char *a, char *b)
+void myswap(char *a, char *b)
 {
    int temp;
    temp = *a;
@@ -22,6 +23,7 @@ int main()
 
    for (int i = 0; i < NUM; i++)
    {
+      Strings[i] = malloc(sizeof(char) * LEN);
       fgets(Strings[i], LEN, stdin);
    }
 
@@ -43,8 +45,18 @@ int main()
       {
          if (Strings[j] > Strings[k])
          {
-            swap(Strings[j], Strings[k + 1]);
+            myswap(Strings[j], Strings[j + 1]);
+
+            if (strlen(Strings[j]) < strlen(Strings[k]))
+            {
+               myswap(Strings[j], Strings[k]);
+            }
+            else
+            {
+               myswap(Strings[j], Strings[j + 1]);
+            }
          }
+         break;
       }
    }
 
@@ -69,6 +81,7 @@ int main()
    for (int l = 0; l < NUM; l++)
    {
       printf("%s", Strings[l]);
+      free(Strings[l]);
    }
    /* Write a for loop here to print all the strings. Feel free to use puts/printf
       etc. for printing each string.
