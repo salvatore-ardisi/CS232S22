@@ -20,11 +20,11 @@ int main()
     {
       if (buf[i] >= 'A' && buf[i] <= 'Z')
       {
-        letter_frequency[buf[i] - 32]++;
+        letter_frequency[buf[i] - 'A']++;
       }
       else if (buf[i] >= 'a' && buf[i] <= 'z')
       {
-        letter_frequency[buf[i] - 32]++;
+        letter_frequency[buf[i] - 'a']++;
       }
     }
   } while (len > 1);
