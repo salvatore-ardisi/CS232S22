@@ -1,0 +1,1 @@
+If start=582 then the sum of ./recursion 1000 would be 331429
