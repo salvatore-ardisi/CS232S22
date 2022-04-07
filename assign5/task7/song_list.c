@@ -4,7 +4,8 @@
 
 struct slist *song_list;
 
-int main(void)   {
+int main(void)
+{
 
     struct snode *node;
 
@@ -30,10 +31,10 @@ int main(void)   {
     node = slist_find(song_list, "Earned It");
     printf("Search 'Earned It', node address %p\n", node);
     node = slist_find(song_list, "Sugar");
-    printf("Search 'Sugar', node address %p\n", node); 
+    printf("Search 'Sugar', node address %p\n", node);
     node = slist_find(song_list, "My Heart Will Go On");
-    printf("Search 'My Heart Will Go On', node address %p\n", node);  // should be NULL
-    
+    printf("Search 'My Heart Will Go On', node address %p\n", node); // should be NULL
+
     slist_destroy(song_list);
 
     return 0;

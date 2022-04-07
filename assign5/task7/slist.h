@@ -28,7 +28,7 @@
  * Revised by Jun Yuan
  *   Add  slist_delete();
  * Date: 2019-12-16
-*/
+ */
 
 #ifndef _slist_H_
 #define _slist_H_
@@ -36,44 +36,45 @@
 #include <stdint.h>
 #include "snode.h"
 
-struct slist {
+struct slist
+{
   struct snode *front; // front node
   struct snode *back;  // back node
 };
 
 /**
  * Allocates new slist dynamically.
- * 
+ *
  * @return pointer to the list
  */
 struct slist *slist_create();
 
-/** 
+/**
  * Inserts new node in slist after the last node.
  *
  * @param l pointer to the list (non-NULL)
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-struct snode* slist_add_back(struct slist *l, char *str);
+struct snode *slist_add_back(struct slist *l, char *str);
 
-/** 
+/**
  * Inserts new node in slist before the first node.
  *
  * @param l pointer to the list (non-NULL)
  * @param str pointer to a C string to store in new list node
  * returns a pointer to the newly added node
  */
-struct snode* slist_add_front(struct slist *l, char *str);
+struct snode *slist_add_front(struct slist *l, char *str);
 
 /**
  * Returns the first snode with the given string.
- *  
+ *
  * @param l pointer to the list (non-NULL)
  * @parap str pointer to a string
  * @return struct snode* or NULL if no match
  */
-struct snode* slist_find(struct slist *l, char *str);
+struct snode *slist_find(struct slist *l, char *str);
 
 /**
  * Deallocate a list and all snodes
@@ -97,11 +98,10 @@ void slist_traverse(struct slist *l);
 uint32_t slist_length(struct slist *l);
 /**
  * Deletes the first snode with the given string.
- *  
+ *
  * @param l pointer to the list (non-NULL)
  * @parap str pointer to a string
  */
 void slist_delete(struct slist *l, char *str);
-
 
 #endif /* _slist_H_ */
